@@ -61,9 +61,38 @@ export function HabitCard({ habit, stats, onToggle, onRemove, onUpdate, currentM
           <HabitIcon name={habit.icon} className="w-4 h-4 sm:w-5 sm:h-5" />
         </div>
         
-        <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-foreground truncate text-sm sm:text-base">{habit.name}</h3>
-          <p className="text-[10px] sm:text-xs text-muted-foreground truncate">{categoryConfig.label}</p>
+        <div className="flex-1 min-w-0 flex items-center gap-1">
+          <div className="min-w-0">
+            <h3 className="font-semibold text-foreground truncate text-sm sm:text-base">{habit.name}</h3>
+            <p className="text-[10px] sm:text-xs text-muted-foreground truncate">{categoryConfig.label}</p>
+          </div>
+          
+          {/* Menu - next to title */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="h-6 w-6 sm:h-7 sm:w-7 flex-shrink-0 text-muted-foreground hover:text-foreground"
+              >
+                <MoreVertical className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-popover">
+              <DropdownMenuItem onClick={() => setEditOpen(true)}>
+                <Pencil className="w-4 h-4 mr-2" />
+                Edit
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem 
+                onClick={() => onRemove(habit.id)}
+                className="text-destructive focus:text-destructive"
+              >
+                <Trash2 className="w-4 h-4 mr-2" />
+                Remove
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Streak */}
@@ -77,33 +106,6 @@ export function HabitCard({ habit, stats, onToggle, onRemove, onUpdate, currentM
             <span className="text-xs sm:text-sm font-bold">{stats.currentStreak}</span>
           </motion.div>
         )}
-
-        {/* Menu */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              className="h-7 w-7 sm:h-8 sm:w-8 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
-            >
-              <MoreVertical className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => setEditOpen(true)}>
-              <Pencil className="w-4 h-4 mr-2" />
-              Edit
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem 
-              onClick={() => onRemove(habit.id)}
-              className="text-destructive focus:text-destructive"
-            >
-              <Trash2 className="w-4 h-4 mr-2" />
-              Remove
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
 
       {/* Edit Dialog */}
