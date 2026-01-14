@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GlowHabit Design System - Calm, Premium, Motivating */
+
+@layer base {
+  :root {
+    --font-sans: 'Outfit', system-ui, sans-serif;
+    
+    /* Core palette - Light mode */
+    --background: 150 20% 98%;
+    --foreground: 160 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 12%;
+
+    /* Primary - Emerald/Teal for growth */
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 160 84% 50%;
+
+    /* Secondary - Soft neutral */
+    --secondary: 150 15% 94%;
+    --secondary-foreground: 160 30% 20%;
+
+    /* Muted */
+    --muted: 150 15% 92%;
+    --muted-foreground: 160 10% 45%;
+
+    /* Accent - Warm amber for motivation */
+    --accent: 38 92% 50%;
+    --accent-foreground: 38 92% 15%;
+    --accent-glow: 38 100% 60%;
+
+    /* Category colors - Life Balance areas */
+    --category-health: 160 84% 39%;
+    --category-career: 220 80% 55%;
+    --category-mind: 270 60% 60%;
+    --category-relationships: 340 70% 55%;
+
+    /* Calm pastel palette */
+    --calm-lavender: 270 50% 85%;
+    --calm-lavender-foreground: 270 40% 25%;
+    --calm-mist: 200 40% 88%;
+    --calm-mist-foreground: 200 30% 25%;
+    --calm-sage: 140 30% 82%;
+    --calm-sage-foreground: 140 25% 25%;
+    --calm-peach: 20 60% 88%;
+    --calm-peach-foreground: 20 50% 25%;
+    --calm-beige: 35 30% 90%;
+    --calm-beige-foreground: 35 25% 25%;
+
+    /* Status colors */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 92% 15%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Streaks & achievements */
+    --streak: 38 92% 50%;
+    --streak-glow: 38 100% 60%;
+    --achievement: 45 93% 47%;
+
+    /* UI elements */
+    --border: 150 15% 88%;
+    --input: 150 15% 92%;
+    --ring: 160 84% 39%;
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(160 84% 39%), hsl(175 80% 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%), hsl(45 93% 55%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(150 20% 99%));
+    --gradient-hero: linear-gradient(135deg, hsl(160 84% 95%), hsl(175 60% 97%), hsl(200 60% 97%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(160 30% 12% / 0.04);
+    --shadow-md: 0 4px 12px hsl(160 30% 12% / 0.06);
+    --shadow-lg: 0 12px 40px hsl(160 30% 12% / 0.08);
+    --shadow-glow: 0 0 30px hsl(160 84% 39% / 0.15);
+    --shadow-streak: 0 0 20px hsl(38 92% 50% / 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 150 20% 98%;
+    --sidebar-foreground: 160 30% 20%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 15% 94%;
+    --sidebar-accent-foreground: 160 30% 20%;
+    --sidebar-border: 150 15% 90%;
+    --sidebar-ring: 160 84% 39%;
+  }
+
+  .dark {
+    --background: 160 30% 6%;
+    --foreground: 150 20% 96%;
+
+    --card: 160 25% 10%;
+    --card-foreground: 150 20% 96%;
+
+    --popover: 160 25% 10%;
+    --popover-foreground: 150 20% 96%;
+
+    --primary: 160 80% 45%;
+    --primary-foreground: 160 30% 6%;
+    --primary-glow: 160 80% 55%;
+
+    --secondary: 160 20% 15%;
+    --secondary-foreground: 150 20% 90%;
+
+    --muted: 160 20% 18%;
+    --muted-foreground: 150 15% 55%;
+
+    --accent: 38 85% 55%;
+    --accent-foreground: 38 92% 95%;
+    --accent-glow: 38 100% 65%;
+
+    --success: 160 80% 45%;
+    --success-foreground: 160 30% 6%;
+
+    --border: 160 20% 18%;
+    --input: 160 20% 18%;
+    --ring: 160 80% 45%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(160 80% 45%), hsl(175 75% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(38 85% 55%), hsl(45 90% 60%));
+    --gradient-card: linear-gradient(180deg, hsl(160 25% 10%), hsl(160 25% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(160 30% 8%), hsl(170 25% 10%), hsl(180 20% 12%));
+
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 12px 40px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 30px hsl(160 80% 45% / 0.2);
+    --shadow-streak: 0 0 20px hsl(38 85% 55% / 0.4);
+
+    --sidebar-background: 160 30% 6%;
+    --sidebar-foreground: 150 20% 90%;
+    --sidebar-primary: 160 80% 45%;
+    --sidebar-primary-foreground: 160 30% 6%;
+    --sidebar-accent: 160 20% 15%;
+    --sidebar-accent-foreground: 150 20% 90%;
+    --sidebar-border: 160 20% 15%;
+    --sidebar-ring: 160 80% 45%;
+  }
+
+  /* Calm Mode - Soothing pastel theme */
+  .calm {
+    --background: 200 30% 97%;
+    --foreground: 220 20% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 25%;
+
+    /* Primary - Soft lavender */
+    --primary: 270 45% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 50% 75%;
+
+    /* Secondary - Mist blue */
+    --secondary: 200 35% 92%;
+    --secondary-foreground: 200 30% 30%;
+
+    /* Muted - Soft beige */
+    --muted: 35 25% 93%;
+    --muted-foreground: 220 15% 50%;
+
+    /* Accent - Soft sage */
+    --accent: 140 30% 70%;
+    --accent-foreground: 140 30% 20%;
+    --accent-glow: 140 35% 80%;
+
+    /* Calm pastels - Enhanced for calm mode */
+    --calm-lavender: 270 50% 88%;
+    --calm-lavender-foreground: 270 35% 30%;
+    --calm-mist: 200 45% 90%;
+    --calm-mist-foreground: 200 30% 28%;
+    --calm-sage: 140 35% 85%;
+    --calm-sage-foreground: 140 25% 28%;
+    --calm-peach: 20 55% 90%;
+    --calm-peach-foreground: 20 45% 30%;
+    --calm-beige: 35 35% 92%;
+    --calm-beige-foreground: 35 25% 28%;
+
+    /* Status colors - Softer versions */
+    --success: 140 35% 60%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 65% 65%;
+    --warning-foreground: 38 60% 20%;
+    --destructive: 20 55% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Streaks & achievements - Muted */
+    --streak: 38 55% 65%;
+    --streak-glow: 38 60% 75%;
+    --achievement: 45 60% 65%;
+
+    /* UI elements */
+    --border: 220 20% 90%;
+    --input: 200 30% 95%;
+    --ring: 270 45% 65%;
+
+    /* Gradients - Soft and soothing */
+    --gradient-primary: linear-gradient(135deg, hsl(270 45% 65%), hsl(200 40% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(140 30% 70%), hsl(170 35% 75%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(200 25% 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(270 40% 95%), hsl(200 35% 96%), hsl(140 30% 96%));
+
+    /* Shadows - Softer */
+    --shadow-sm: 0 1px 3px hsl(220 30% 50% / 0.04);
+    --shadow-md: 0 4px 12px hsl(220 30% 50% / 0.06);
+    --shadow-lg: 0 12px 40px hsl(220 30% 50% / 0.08);
+    --shadow-glow: 0 0 30px hsl(270 45% 65% / 0.12);
+    --shadow-streak: 0 0 20px hsl(38 55% 65% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 200 30% 97%;
+    --sidebar-foreground: 220 20% 30%;
+    --sidebar-primary: 270 45% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 35% 94%;
+    --sidebar-accent-foreground: 200 30% 30%;
+    --sidebar-border: 220 20% 92%;
+    --sidebar-ring: 270 45% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-streak {
+    box-shadow: var(--shadow-streak);
+  }
+
+  .glass {
+    backdrop-filter: blur(12px);
+    background: hsl(var(--background) / 0.8);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Safe area utilities for mobile */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pl-safe {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .pr-safe {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Touch-friendly tap targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent text overflow */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Responsive container padding */
+  .container-padding {
+    @apply px-3 sm:px-4 md:px-6 lg:px-8;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: var(--shadow-glow); }
+    50% { box-shadow: 0 0 40px hsl(160 84% 39% / 0.25); }
+  }
+}
+
+/* Responsive typography scale */
+@layer base {
+  html {
+    font-size: 14px;
+  }
+
+  @media (min-width: 640px) {
+    html {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 16px;
+    }
+  }
+}
