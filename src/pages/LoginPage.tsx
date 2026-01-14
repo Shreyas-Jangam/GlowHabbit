@@ -112,7 +112,7 @@ const LoginPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-calm-lavender/30 via-background to-calm-mist/30 flex items-center justify-center">
+      <div className="min-h-screen min-h-[100dvh] bg-gradient-to-br from-calm-lavender/30 via-background to-calm-mist/30 flex items-center justify-center p-4">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
@@ -123,7 +123,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-calm-lavender/30 via-background to-calm-mist/30 flex items-center justify-center p-4">
+    <div className="min-h-screen min-h-[100dvh] bg-gradient-to-br from-calm-lavender/30 via-background to-calm-mist/30 flex items-center justify-center p-3 sm:p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -131,23 +131,23 @@ const LoginPage = () => {
         className="w-full max-w-md"
       >
         <Card className="bg-card/80 backdrop-blur-md border-border/50 shadow-xl">
-          <CardHeader className="text-center space-y-2">
+          <CardHeader className="text-center space-y-2 px-4 sm:px-6 pt-6 pb-2 sm:pb-4">
             <motion.div 
               className="mx-auto mb-2"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
             >
-              <LogoIcon size={56} />
+              <LogoIcon size={48} />
             </motion.div>
-            <CardTitle className="text-2xl font-semibold">Login to Continue</CardTitle>
-            <CardDescription>Welcome back! Sign in to continue your journey.</CardDescription>
+            <CardTitle className="text-xl sm:text-2xl font-semibold">Login to Continue</CardTitle>
+            <CardDescription className="text-sm">Welcome back! Sign in to continue your journey.</CardDescription>
           </CardHeader>
           
-          <CardContent>
+          <CardContent className="px-4 sm:px-6 pb-6">
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-muted-foreground">Email</Label>
+                <Label htmlFor="email" className="text-muted-foreground text-sm">Email</Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
@@ -156,14 +156,14 @@ const LoginPage = () => {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 bg-background/50 border-border/50 focus:border-calm-lavender"
+                    className="pl-10 bg-background/50 border-border/50 focus:border-calm-lavender h-11 text-base"
                     required
                   />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-muted-foreground">Password</Label>
+                <Label htmlFor="password" className="text-muted-foreground text-sm">Password</Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
@@ -172,13 +172,13 @@ const LoginPage = () => {
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 pr-10 bg-background/50 border-border/50 focus:border-calm-lavender"
+                    className="pl-10 pr-10 bg-background/50 border-border/50 focus:border-calm-lavender h-11 text-base"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors p-1 touch-target-sm"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
@@ -190,7 +190,7 @@ const LoginPage = () => {
                   type="button"
                   onClick={handleForgotPassword}
                   disabled={isResetting}
-                  className="text-sm text-calm-lavender hover:underline disabled:opacity-50"
+                  className="text-sm text-calm-lavender hover:underline disabled:opacity-50 touch-target-sm py-1"
                 >
                   {isResetting ? 'Sending...' : 'Forgot Password?'}
                 </button>
@@ -198,7 +198,7 @@ const LoginPage = () => {
 
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-calm-lavender to-calm-sage hover:opacity-90 text-white h-11"
+                className="w-full bg-gradient-to-r from-calm-lavender to-calm-sage hover:opacity-90 text-white h-12 text-base touch-target"
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -227,8 +227,8 @@ const LoginPage = () => {
 
       {/* Decorative Elements */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-calm-lavender/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-calm-sage/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-16 sm:-left-32 w-32 sm:w-64 h-32 sm:h-64 bg-calm-lavender/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-16 sm:-right-32 w-32 sm:w-64 h-32 sm:h-64 bg-calm-sage/10 rounded-full blur-3xl" />
       </div>
     </div>
   );

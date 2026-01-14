@@ -61,24 +61,25 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen min-h-[100dvh] bg-background overflow-x-hidden w-full max-w-[100vw]">
       <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
       
       {/* Main Content - Responsive margins for different nav layouts */}
       <main className="
-        pt-16 pb-20
-        md:pt-0 md:pb-8 md:ml-16
-        lg:ml-64
-        min-h-screen
+        pt-[60px] pb-[72px]
+        md:pt-0 md:pb-6 md:ml-16
+        lg:ml-64 lg:pb-8
+        min-h-screen min-h-[100dvh]
+        w-full
       ">
-        <div className="w-full max-w-6xl mx-auto py-4 px-3 sm:py-6 sm:px-4 md:px-6 lg:px-8">
+        <div className="w-full max-w-6xl mx-auto py-3 px-3 sm:py-4 sm:px-4 md:py-6 md:px-6 lg:px-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.15 }}
               className="w-full"
             >
               {renderView()}
