@@ -41,7 +41,7 @@ function getDefaultProfile(): UserProfile {
     joinedDate: new Date().toISOString(),
     subtitle: CALM_SUBTITLES[Math.floor(Math.random() * CALM_SUBTITLES.length)],
     preferences: {
-      appearance: 'light',
+      appearance: 'dark',
       reminderEnabled: true,
       statsPrivate: false,
     },
@@ -72,6 +72,9 @@ function initializeTheme() {
   const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'calm' | null;
   if (savedTheme) {
     applyTheme(savedTheme);
+  } else {
+    // Default to dark theme
+    applyTheme('dark');
   }
 }
 
